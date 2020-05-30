@@ -1,10 +1,12 @@
 <br />
 <div class="container row p-0 m-0">
     <div class="col-9">
-        <h2 class="text-info">Cat Index</h2>
+        <h2>Cat Index</h2>
     </div>
     <div class="col-3">
-        <a class="btn btn-info form-control text-white">Create New Cat</a>
+        <!--Create Button-->
+        <%= link_to 'Create New Cat', new_cat_path, 
+            class:"btn btn-info form-control text-white" %>
     </div>
 
      <div class="col-12 border p-3 mt-3">
@@ -29,7 +31,7 @@
                         <label>Description</label>
                     </th>
                     <th>
-                        <!--Blank heading for button columns-->
+                        <!--Blank heading for button column-->
                     </th>
                 </tr>
 
@@ -58,11 +60,12 @@
                                 data: { confirm: 'Are you sure?' } %>
 
                             <!--Edit Button-->
-                            <%= link_to 'Edit', edit_cat_path(kitty), class:"btn btn-success btn-sm text-white" %>
+                            <%= link_to 'Edit', edit_cat_path(kitty), 
+                                class:"btn btn-success btn-sm text-white" %>
                             
                             <!--Detail Button-->
-                            <%= link_to 'Details', cat_path(kitty), class:"btn btn-info btn-sm text-white" %>
-                            
+                            <%= link_to 'Details', cat_path(kitty), 
+                                class:"btn btn-info btn-sm text-white" %>
                         </td>
                     </tr>
                 <% end %>

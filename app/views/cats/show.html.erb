@@ -1,1 +1,31 @@
-<h1>Show</h1>
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-12">
+        <h2><%= @cat.name %> Details</h2>
+    </div>
+    <div class="col-6 border p-3 mt-3">
+        <table class="table table-striped border">
+            <tr>
+                <td>Name: <%= @cat.name %></td>
+            </tr>
+            <tr>
+                <td>Birthday: <%= @cat.birth_date %></td>
+            </tr>
+            <tr>
+                <td>Sex: <%= @cat.sex %></td>
+            </tr>
+            <tr>
+                <td>Description: <%= @cat.description %></td>
+            </tr>
+
+        </table>
+    </div>
+    <br />
+    
+</div>
+<br />
+<div class="col-2">
+    <!--Return Button-->
+    <%= link_to 'Return', cats_path, 
+        class:"btn btn-info form-control text-white" %>
+</div>
