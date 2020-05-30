@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 class Cat < ApplicationRecord
-    COLORS = "black white gray"
+    COLORS = "Black White Gray Red Brown"
     validates :birth_date, presence: true
     validates :color, inclusion: {in: %w(Black White Gray)}
     validates :sex, inclusion: {in: %w(M F)}

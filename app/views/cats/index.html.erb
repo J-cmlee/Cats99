@@ -10,6 +10,7 @@
      <div class="col-12 border p-3 mt-3">
         <form method="post">
             <table class="table table-striped border">
+
                 <!--Headings-->
                 <tr class="table-secondary">
                     <th>
@@ -51,8 +52,17 @@
                             <%= kitty.description %>
                         </td>
                         <td>
-                            <button onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button>
-                            <a class="btn btn-success btn-sm text-white">Edit</a>
+                            <!--Delete Button-->
+                            <%= link_to 'Delete', cat_path(kitty),
+                                method: :delete, class:"btn btn-danger btn-sm",
+                                data: { confirm: 'Are you sure?' } %>
+
+                            <!--Edit Button-->
+                            <%= link_to 'Edit', edit_cat_path(kitty), class:"btn btn-success btn-sm text-white" %>
+                            
+                            <!--Detail Button-->
+                            <%= link_to 'Details', cat_path(kitty), class:"btn btn-info btn-sm text-white" %>
+                            
                         </td>
                     </tr>
                 <% end %>
