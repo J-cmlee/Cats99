@@ -25,7 +25,7 @@
                 <label for="birth_date">Birthday</label>
             </div>
             <div class="col-6">
-                <input id="birth_date" type="text" name="cat[birth_date]" value="<%= @cat.birth_date %>">
+                <input id="birth_date" type="date" name="cat[birth_date]" value="<%= @cat.birth_date %>">
             </div>
         </div>
         <div class="form-group row">
@@ -43,7 +43,7 @@
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label for="sex">Sex</label>
+                <label for="sex">Sex (M/F)</label>
             </div>
             <div class="col-6">
                 <input id="sex" type="text" name="cat[sex]" value="<%= @cat.sex %>">
@@ -61,9 +61,23 @@
         <br />
         <input type="submit" class="btn btn-success form-control text-white col-2" value="<%= @cat.id != nil ? 'Update Cat' : 'Add Cat'%>">
         
+        <!--Error Messages-->
+        <% if @cat.errors.any? %>
+            <div id="error_explanation">
+              <h3 class="text-danger">
+                <%= pluralize(@cat.errors.count, "error") %> prohibited
+                this cat from being saved:
+              </h2>
+              <ul>
+                <% @cat.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+</div>
     </form>
     
-</div>
 <br />
 <div class="col-2">
     <!--Return Button-->
