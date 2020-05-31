@@ -12,10 +12,12 @@
 #  updated_at  :datetime         not null
 #
 class Cat < ApplicationRecord
-    COLORS = "Black White Gray Red Brown"
+    COLORS = %w(Black White Gray Red Brown).freeze
     validates :birth_date, presence: true
-    validates :color, inclusion: {in: %w(Black White Gray)}
+    validates :color, inclusion: COLORS
     validates :sex, inclusion: {in: %w(M F)}
+
+    has_many :cat_rental_requests, dependent: :destroy
 
     def age
         return Date.today.year - birth_date.year

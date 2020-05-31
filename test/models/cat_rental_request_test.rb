@@ -5,7 +5,7 @@
 #  id         :bigint           not null, primary key
 #  end_date   :date             not null
 #  start_date :date             not null
-#  status     :string           not null
+#  status     :string           default("PENDING"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  cat_id     :integer          not null
