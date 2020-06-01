@@ -1,0 +1,72 @@
+<br />
+<h2> New Rental Request</h2>
+<br />
+
+<div class="col-12 border p-3 mt-3">
+    <form action=<%=cat_cat_rental_requests_url%> method="post">
+
+        <!--Attribute Inputs-->
+        <div class="form-group row">
+          <div class="col-2">
+            <label for="cat_rental_request_cat_id">Cat</label>
+          </div>
+            <div class="col-6">
+              <select id="cat_rental_request_cat_id" name="cat_rental_request[cat_id]">
+                <option disabled <%= @request.id ? "" : "selected"%>>-- Please Select --</option>
+                <% Cat.all.each do |cat| %>
+                    <% selected=@request.cat_id==cat.id%>
+                    <option <%= selected ? "selected" : "" %> value="<%=cat.id%>">
+                      <%= cat.name %>
+                    </option>
+                <% end %>
+              </select>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label for="start_date">Start Date</label>
+            </div>
+            <div class="col-6">
+                <% @request.start_date = Date.today %>
+                <input id="start_date" type="date" name="cat_rental_request[start_date]" value="<%= @request.start_date %>">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label for="end_date">End Date</label>
+            </div>
+            <div class="col-6">
+                <% @request.end_date = Date.today %>
+                <input id="end_date" type="date" name="cat_rental_request[end_date]" value="<%= @request.end_date %>">
+            </div>
+        </div>
+
+        <br />
+        <input type="submit" class="btn btn-success form-control text-white col-2" value="Add Cat Rental Request">
+
+        <!--Error Messages-->
+        <% if @request.errors.any? %>
+            <div id="error_explanation">
+              <h3 class="text-danger">
+                <%= pluralize(@request.errors.count, "error") %> prohibited
+                this request from being saved:
+              </h2>
+              <ul>
+                <% @request.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+    </form>
+</div>
+<br />
+<div class="col-2">
+    <!--Return Button-->
+    <%= link_to 'Return', cats_path, 
+        class:"btn btn-info form-control text-white" %>
+</div>

@@ -20,8 +20,8 @@ class CatRentalRequest < ApplicationRecord
 
     validates :status, inclusion: STATUS_STATES
     validates :cat_id, :end_date, :start_date, :status, presence: true
-    validates :does_not_overlap_approved_request
-    validates :start_must_come_before_end
+    validate :does_not_overlap_approved_request
+    validate :start_must_come_before_end
 
     belongs_to :cat
 

@@ -29,3 +29,17 @@
     <%= link_to 'Return', cats_path, 
         class:"btn btn-info form-control text-white" %>
 </div>
+<br />
+<h4>Rental Requests</h4>
+<div class="col-6 border p-3 mt-3">
+    <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>Start Date</th>
+                <th>End Date </th>
+                <th>Status</th>
+            </tr>
+
+            <%= render @cat.cat_rental_requests %>
+
+    </table>
+</div>
