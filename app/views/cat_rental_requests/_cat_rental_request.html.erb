@@ -2,4 +2,13 @@
     <td><%= cat_rental_request.start_date %></td>
     <td><%= cat_rental_request.end_date %></td>
     <td><%= cat_rental_request.status %></td>
+    <td>
+        <% if cat_rental_request.status == 'PENDING' %>
+            <!--Return Button-->
+            <%= link_to 'Approve', approve_cat_cat_rental_request_path(cat_rental_request), method: :post,
+                class:"btn btn-success btn-small text-white" %>
+            <%= link_to 'Deny', deny_cat_cat_rental_request_path(cat_rental_request), method: :post,
+                class:"btn btn-danger btn-small text-white" %>
+        <% end %>
+    </td>
 </tr>

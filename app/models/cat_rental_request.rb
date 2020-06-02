@@ -16,7 +16,7 @@
 #
 class CatRentalRequest < ApplicationRecord
     #use .freeze to redner contants immutable
-    STATUS_STATES = %w(APPROVE DENIED PENDING).freeze
+    STATUS_STATES = %w(APPROVED DENIED PENDING).freeze
 
     validates :status, inclusion: STATUS_STATES
     validates :cat_id, :end_date, :start_date, :status, presence: true

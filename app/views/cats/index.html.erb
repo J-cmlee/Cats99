@@ -1,81 +1,74 @@
 <br />
 <div class="container row p-0 m-0">
-    <div class="col-9">
-        <h2>Cat Index</h2>
-    </div>
-    <div class="col-3">
-        <!--Create Button-->
-        <%= link_to 'Create New Cat', new_cat_path, 
-            class:"btn btn-info form-control text-white" %>
-    </div>
+  <div class="col-9">
+    <h2>Cat Index</h2>
+  </div>
+  <div class="col-3">
+    <!--Create Button-->
+    <%= link_to 'Create New Cat', new_cat_path, 
+        class:"btn btn-info form-control text-white" %>
+  </div>
 
-     <div class="col-12 border p-3 mt-3">
-        <form method="post">
-            <table class="table table-striped border">
-
-                <!--Headings-->
-                <tr class="table-secondary">
-                    <th>
-                        <label>Name</label>
-                    </th>
-                    <th>
-                        <label>Age</label>
-                    </th>
-                    <th>
-                        <label>Sex</label>
-                    </th>
-                    <th>
-                        <label>Color</label>
-                    </th>
-                    <th>
-                        <label>Description</label>
-                    </th>
-                    <th>
-                        <!--Blank heading for button column-->
-                    </th>
-                </tr>
-
-                <!--List of Cats-->
-                <% @cats.each do |kitty| %>
-                    <tr>
-                        <td>
-                            <%= kitty.name %>
-                        </td>
-                        <td>
-                            <%= kitty.age %>
-                        </td>
-                        <td>
-                            <%= kitty.sex %>
-                        </td>
-                        <td>
-                            <%= kitty.color %>
-                        </td>
-                        <td>
-                            <%= kitty.description %>
-                        </td>
-                        <td>
-                            <!--Delete Button-->
-                            <%= link_to 'Delete', cat_path(kitty),
-                                method: :delete, class:"btn btn-danger btn-sm",
-                                data: { confirm: 'Are you sure?' } %>
-
-                            <!--Edit Button-->
-                            <%= link_to 'Edit', edit_cat_path(kitty), 
-                                class:"btn btn-success btn-sm text-white" %>
-                            
-                            <!--Detail Button-->
-                            <%= link_to 'Details', cat_path(kitty), 
-                                class:"btn btn-info btn-sm text-white" %>
-
-                            <!--Rent Request-->
-                            <%= link_to 'Rent', new_cat_cat_rental_request_path(kitty),
-                                class:"btn btn-secondary btn-sm text-white"%>
-                        </td>
-                    </tr>
-                <% end %>
-
-            </table>
-        </form>
-    </div>
-
+  <div class="col-12 border p-3 mt-3">
+    <form method="post">
+      <table class="table table-striped border">  
+        <!--Headings-->
+        <tr class="table-secondary">
+          <th>
+            <label>Name</label>
+          </th>
+          <th>
+            <label>Age</label>
+          </th>
+          <th>
+            <label>Sex</label>
+          </th>
+          <th>
+            <label>Color</label>
+          </th>
+          <th>
+            <label>Description</label>
+          </th>
+          <th>
+            <!--Blank heading for button column-->
+          </th>
+        </tr>  
+          <!--List of Cats-->
+          <% @cats.each do |kitty| %>
+              <tr>
+                <td>
+                  <%= kitty.name %>
+                </td>
+                <td>
+                  <%= kitty.age %>
+                </td>
+                <td>
+                  <%= kitty.sex %>
+                </td>
+                <td>
+                  <%= kitty.color %>
+                </td>
+                <td>
+                  <%= kitty.description %>
+                </td>
+                <td>
+                  <!--Delete Button-->
+                  <%= link_to 'Delete', cat_path(kitty),
+                      method: :delete, class:"btn btn-danger btn-sm",
+                      data: { confirm: 'Are you sure?' } %>  
+                  <!--Edit Button-->
+                  <%= link_to 'Edit', edit_cat_path(kitty), 
+                      class:"btn btn-success btn-sm text-white" %>
+                  <!--Detail Button-->
+                  <%= link_to 'Details', cat_path(kitty), 
+                      class:"btn btn-info btn-sm text-white" %>  
+                  <!--Rent Request-->
+                  <%= link_to 'Rent', new_cat_cat_rental_request_path(kitty),
+                      class:"btn btn-secondary btn-sm text-white"%>
+                </td>
+              </tr>
+          <% end %>  
+      </table>
+    </form>
+  </div>
 </div>

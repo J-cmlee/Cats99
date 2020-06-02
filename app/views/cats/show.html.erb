@@ -31,12 +31,13 @@
 </div>
 <br />
 <h4>Rental Requests</h4>
-<div class="col-6 border p-3 mt-3">
+<div class="col-6 border p-3 mt-3" method="post">
     <table class="table table-striped border">
             <tr class="table-secondary">
                 <th>Start Date</th>
                 <th>End Date </th>
                 <th>Status</th>
+                <th></th>
             </tr>
 
             <%= render @cat.cat_rental_requests %>
