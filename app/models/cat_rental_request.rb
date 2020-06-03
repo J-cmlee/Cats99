@@ -77,8 +77,9 @@ class CatRentalRequest < ApplicationRecord
             self.save!
 
             #Reject of all overlapping requests for this cat
-            overlapping_approved_requests.each do |ele|
-                ele.update!(status: "DENIED")
+            overlapping_pending_requests.each do |ele|
+                ele.status = "DENIED"
+                ele.save!
             end
         end
     end
